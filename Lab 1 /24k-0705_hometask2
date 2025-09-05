@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+class Box {
+private:
+    int* volume;
+
+public:
+    Box() {
+        volume = new int(0);
+    }
+
+    Box(int v) {
+        volume = new int(v);
+    }
+
+    Box(const Box& other) {
+        volume = new int(*other.volume);
+    }
+
+    ~Box() {
+        delete volume;
+    }
+
+    void setVolume(int v) {
+        *volume = v;
+    }
+
+    int getVolume() const {
+        return *volume;
+    }
+};
+
+int main() {
+    Box b1; 
+    cout << "Default box volume: " << b1.getVolume() << endl;
+
+    Box b2(50);
+    cout << "Parameterized box volume: " << b2.getVolume() << endl;
+
+    Box b3 = b2;
+    cout << "Copied box volume (b3): " << b3.getVolume() << endl;
+
+    b3.setVolume(100);
+
+    cout << "\nAfter modifying b3:" << endl;
+    cout << "b2 volume: " << b2.getVolume() << endl;
+    cout << "b3 volume: " << b3.getVolume() << endl;
+
+    return 0;
+}
