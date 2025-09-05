@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Exam {
+private:
+    int* marks;
+
+public:
+    Exam(int m) {
+        marks = new int(m);
+    }
+
+    ~Exam() {
+        delete marks;
+    }
+
+    void setMarks(int m) {
+        *marks = m;
+    }
+
+    int getMarks() const {
+        return *marks;
+    }
+};
+
+int main() {
+    Exam e1(85);      
+    cout << "Original e1 marks: " << e1.getMarks() << endl;
+
+    Exam e2 = e1;  // Shallow copy (default copy constructor)
+
+    cout << "Copied e2 marks: " << e2.getMarks() << endl;
+
+    e2.setMarks(95);
+
+    cout << "\nAfter modifying e2:" << endl;
+    cout << "e1 marks: " << e1.getMarks() << endl;
+    cout << "e2 marks: " << e2.getMarks() << endl;
+
+    return 0;
+}
