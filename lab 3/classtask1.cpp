@@ -31,12 +31,12 @@ public:
             return;
         }
         Node* temp = head;
-        while (temp->next){
-
-		temp = temp->next;
+        while (temp->next) {
+            temp = temp->next;
+        }
         temp->next = newNode;
     }
-}
+
     void insertAfter(const string& target, const string& book) {
         Node* temp = head;
         while (temp && temp->book != target) {
