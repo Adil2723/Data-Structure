@@ -2,10 +2,12 @@
 #include <string>
 using namespace std;
 
-struct Node {
+class Node {
+public:
     string song;
     Node* next;
-    Node(string s) : song(s), next(nullptr) {}
+
+    Node(const string& s) : song(s), next(nullptr) {}
 };
 
 class Playlist {
@@ -17,7 +19,7 @@ public:
         Node* newNode = new Node(song);
         if (!tail) {
             tail = newNode;
-            tail->next = tail;
+            tail->next = tail;  // circular link
         } else {
             newNode->next = tail->next;
             tail->next = newNode;
@@ -53,6 +55,12 @@ public:
 
     ~Playlist() {
         if (!tail) return;
+
+        if (tail->next == tail) {  
+            delete tail;  // only one node
+            return;
+        }
+
         Node* current = tail->next;
         tail->next = nullptr; 
 
