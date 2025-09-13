@@ -1,9 +1,11 @@
 #include <iostream>
 using namespace std;
 
-struct Node {
+class Node {
+public:
     int data;
     Node* next;
+
     Node(int val) : data(val), next(nullptr) {}
 };
 
@@ -47,7 +49,8 @@ public:
                 current = current->next;
             }
         } while (swapped);
-}
+    }
+
     void concatenate(LinkedList& other) {
         if (!head) {
             head = other.head;
@@ -60,7 +63,7 @@ public:
         other.head = nullptr; 
     }
 
-	  int findMiddle() {
+    int findMiddle() {
         if (!head) {
             cout << "List is empty.\n";
             return -1; // indicate empty
@@ -73,6 +76,7 @@ public:
         }
         return slow->data;
     }
+
     void removeDuplicates() {
         if (!head) return;
         Node* current = head;
@@ -90,7 +94,8 @@ public:
             current = current->next;
         }
     }
-   static LinkedList mergeSortedLists(LinkedList& l1, LinkedList& l2) {
+
+    static LinkedList mergeSortedLists(LinkedList& l1, LinkedList& l2) {
         LinkedList merged;
         Node* dummy = new Node(0);
         Node* tail = dummy;
@@ -166,7 +171,8 @@ int main() {
     LinkedList merged = LinkedList::mergeSortedLists(list1, list2);
     cout << "Merged Sorted List: ";
     merged.display();
-   list1.concatenate(list2);
+
+    list1.concatenate(list2);
     cout << "List1 after concatenation with list2 (list2 is empty): ";
     list1.display();
 
