@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-struct Node {
+class Node {
+public:
     string book;
     Node* next;
     Node(string b) : book(b), next(nullptr) {}
