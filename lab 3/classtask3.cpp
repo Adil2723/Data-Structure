@@ -1,10 +1,12 @@
 #include <iostream>
 using namespace std;
 
-struct Node {
+class Node {
+public:
     int compartmentNumber;
     Node* prev;
     Node* next;
+
     Node(int num) : compartmentNumber(num), prev(nullptr), next(nullptr) {}
 };
 
@@ -33,9 +35,11 @@ public:
         }
         Node* temp = head;
         head = head->next;
-        if (head) head->prev = nullptr;
-        else tail = nullptr;
-
+        if (head) {
+            head->prev = nullptr;
+        } else {
+            tail = nullptr;
+        }
         cout << "Removed compartment number: " << temp->compartmentNumber << endl;
         delete temp;
     }
@@ -81,8 +85,8 @@ int main() {
     train.addEnd(104);
 
     train.display();
- 
-	  train.removeFirst();
+
+    train.removeFirst();
 
     int searchNum = 103;
     if (train.search(searchNum)) {
