@@ -1,0 +1,75 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class NQueens {
+private:
+    int N;
+    vector<vector<char>> board;
+    int totalSolutions;
+
+    bool isSafe(int row, int col) {
+        for (int i = 0; i < row; i++)
+            if (board[i][col] == 'Q')
+                return false;
+
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--)
+            if (board[i][j] == 'Q')
+                return false;
+
+        for (int i = row - 1, j = col + 1; i >= 0 && j < N; i--, j++)
+            if (board[i][j] == 'Q')
+                return false;
+
+        return true;
+    }
+
+    void solve(int row, bool printFirst) {
+        if (row == N) {
+            totalSolutions++;
+            if (printFirst) {
+                cout << "One valid board configuration:\n";
+                for (int i = 0; i < N; i++) {
+                    for (int j = 0; j < N; j++)
+                        cout << board[i][j] << " ";
+                    cout << endl;
+                }
+                cout << endl;
+            }
+            return;
+        }
+
+        for (int col = 0; col < N; col++) {
+            if (isSafe(row, col)) {
+                board[row][col] = 'Q';
+                solve(row + 1, printFirst);
+                board[row][col] = '.';
+            }
+        }
+    }
+
+public:
+    NQueens(int size) {
+        N = size;
+        board = vector<vector<char>>(N, vector<char>(N, '.'));
+        totalSolutions = 0;
+    }
+
+    void run() {
+        solve(0, true);
+        totalSolutions = 0;
+        solve(0, false);
+        cout << "Total number of distinct solutions for N = " << N << " is: " << totalSolutions << endl;
+    }
+};
+
+int main() {
+    int N;
+    cout << "Enter the value of N: ";
+    cin >> N;
+
+    NQueens nq(N);
+    nq.run();
+
+    return 0;
+}
