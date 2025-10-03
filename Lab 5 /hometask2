@@ -1,22 +1,22 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #define N 5
 
 int maze[N][N] = {
     {1,0,1,0,1},
-    {1,1,0,1,1},
-    {0,1,1,0,1},
-    {1,0,1,1,0},
-    {1,1,0,1,1}
+    {1,1,1,1,1},
+    {0,1,0,1,1},
+    {1,0,0,1,1},
+    {1,1,1,0,1}
 };
 
 int sol[N][N] = {0};
+vector<string> moves;
 
 bool isSafe(int x, int y) {
-    if (x >= 0 && x < N && y >= 0 && y < N && maze[x][y] == 1)
-        return true;
-    return false;
+    return (x >= 0 && x < N && y >= 0 && y < N && maze[x][y] == 1 && sol[x][y] == 0);
 }
 
 bool solveMaze(int x, int y) {
@@ -26,11 +26,24 @@ bool solveMaze(int x, int y) {
     }
     if (isSafe(x, y)) {
         sol[x][y] = 1;
+
+        moves.push_back("Down");
         if (solveMaze(x + 1, y)) return true;
+        moves.pop_back();
+
+        moves.push_back("Right");
         if (solveMaze(x, y + 1)) return true;
+        moves.pop_back();
+
+        moves.push_back("Up");
         if (solveMaze(x - 1, y)) return true;
+        moves.pop_back();
+
+        moves.push_back("Left");
         if (solveMaze(x, y - 1)) return true;
-        sol[x][y] = 0;
+        moves.pop_back();
+
+        sol[x][y] = 0;  
         return false;
     }
     return false;
@@ -38,13 +51,20 @@ bool solveMaze(int x, int y) {
 
 int main() {
     if (solveMaze(0, 0)) {
-        cout << "Solution Path:\n";
+        cout << "Solution Path (Solution Array):\n";
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 cout << sol[i][j] << " ";
             }
             cout << endl;
         }
+
+        cout << "\nMoves taken by Lion:\n";
+        for (string m : moves) {
+            cout << m << " ";
+        }
+        cout << endl;
+
     } else {
         cout << "No path found!" << endl;
     }
