@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+void guessNumber(int target, int playerTurn) {
+    int guess;
+    cout << "Player " << playerTurn << ", enter your guess (1-100): ";
+    cin >> guess;
+    if (guess == target) {
+        cout << "Player " << playerTurn << " wins!" << endl;
+        return;
+    } 
+    else if (guess < target) {
+        cout << "Too low!\n";
+    } 
+    else {
+        cout << "Too high!\n";
+    }
+    int nextPlayer = (playerTurn == 1) ? 2 : 1;
+    guessNumber(target, nextPlayer);
+}
+
+int main() {
+    int target = 42;
+    cout << "Number Guessing Game\n";
+    guessNumber(target, 1);
+    return 0;
+}
