@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+void shellSort(int arr[], int n) {
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; i++) {
+            int temp = arr[i];
+            int j = i;
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+            arr[j] = temp;
+        }
+
+        cout << "After gap = " << gap << ": ";
+        printArray(arr, n);
+    }
+}
+
+int main() {
+    int weights[] = {32, 25, 40, 12, 18, 50, 28};
+    int n = 7;
+
+    cout << "Original luggage weights: ";
+    printArray(weights, n);
+
+    shellSort(weights, n);
+
+    cout << "\nSorted luggage weights (lightest → heaviest): ";
+    printArray(weights, n);
+
+    cout << "\n--- Analysis ---\n";
+    cout << " Shell Sort is more efficient than Bubble Sort because it reduces unnecessary swaps.\n";
+    cout << " It uses gaps to partially sort the array before final fine-tuning (gap=1).\n";
+    cout << " If the luggage was already nearly sorted, Shell Sort would perform even faster.\n";
+    cout << "   The inner loop would execute fewer times since most elements are already in correct order.\n";
+
+    return 0;
+}
