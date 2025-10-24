@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Runner {
+public:
+    string name;
+    int time;
+};
+
+class Marathon {
+
+public:
+
+    void merge(Runner arr[], int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        Runner leftArr[n1], rightArr[n2];
+
+        for (int i = 0; i < n1; i++)
+            leftArr[i] = arr[left + i];
+        for (int j = 0; j < n2; j++)
+            rightArr[j] = arr[mid + 1 + j];
+
+        int i = 0, j = 0, k = left;
+
+        while (i < n1 && j < n2) {
+            if (leftArr[i].time <= rightArr[j].time) {
+                arr[k] = leftArr[i];
+                i++;
+            } else {
+                arr[k] = rightArr[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            arr[k] = leftArr[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            arr[k] = rightArr[j];
+            j++;
+            k++;
+        }
+    }
+
+    void mergeSort(Runner arr[], int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+            merge(arr, left, mid, right);
+        }
+    }
+
+    void displayTop(Runner arr[], int n) {
+        cout << "\nTop 5 Runners:\n";
+        for (int i = 0; i < 5 && i < n; i++)
+            cout << i + 1 << ". " << arr[i].name << " - " << arr[i].time << " seconds" << endl;
+    }
+
+    void displayAll(Runner arr[], int n) {
+        cout << "\nAll Runners:\n";
+        for (int i = 0; i < n; i++)
+            cout << i + 1 << ". " << arr[i].name << " - " << arr[i].time << " seconds" << endl;
+    }
+};
+
+int main() {
+    Runner runners[10];
+    Marathon marathon;
+
+    for (int i = 0; i < 10; i++) {
+        cout << "Enter name of runner " << i + 1 << ": ";
+        cin.ignore(); 
+        getline(cin, runners[i].name);
+
+        cout << "Enter finish time for " << runners[i].name << ": ";
+        cin >> runners[i].time;
+    }
+
+    marathon.mergeSort(runners, 0, 9);
+
+    marathon.displayTop(runners, 10);
+
+    return 0;
+}
