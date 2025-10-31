@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Node {
+public:
+    string packageName;
+    Node* left;
+    Node* right;
+
+    Node(string name) {
+        packageName = name;
+        left = right = nullptr;
+    }
+};
+
+class TourTree {
+private:
+    Node* root;
+
+    Node* insert(Node* node, string name) {
+        if (!node) return new Node(name);
+        char choice;
+        cout << "Add " << name << " to the left (l) or right (r) of " << node->packageName << "? ";
+        cin >> choice;
+        if (choice == 'l' || choice == 'L') node->left = insert(node->left, name);
+        else node->right = insert(node->right, name);
+        return node;
+    }
+
+    void display(Node* node, int level) {
+        if (!node) return;
+        display(node->right, level + 1);
+        for (int i = 0; i < level; i++) cout << "    ";
+        cout << node->packageName << endl;
+        display(node->left, level + 1);
+    }
+
+public:
+    TourTree() { root = nullptr; }
+
+    void addPackage(string name) {
+        if (!root) root = new Node(name);
+        else root = insert(root, name);
+    }
+
+    void showTree() {
+        if (!root) cout << "No tour packages available.\n";
+        else display(root, 0);
+    }
+};
+
+int main() {
+    TourTree tours;
+    int n;
+    string name;
+    cout << "Enter number of tour packages: ";
+    cin >> n;
+    cin.ignore();
+    for (int i = 0; i < n; i++) {
+        cout << "Enter tour package name: ";
+        getline(cin, name);
+        tours.addPackage(name);
+    }
+    cout << "\nTour Package Hierarchy:\n";
+    tours.showTree();
+    return 0;
+}
