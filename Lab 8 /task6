@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+public:
+    int id;
+    Employee* left;
+    Employee* right;
+    Employee(int id) : id(id), left(nullptr), right(nullptr) {}
+};
+
+class EmployeeTree {
+private:
+    Employee* root;
+
+    Employee* insertEmployee(Employee* node, int id) {
+        if (node == nullptr) return new Employee(id);
+        if (id < node->id) node->left = insertEmployee(node->left, id);
+        else if (id > node->id) node->right = insertEmployee(node->right, id);
+        return node;
+    }
+
+    Employee* findLCA(Employee* node, int id1, int id2) {
+        if (node == nullptr) return nullptr;
+        if (node->id > id1 && node->id > id2) return findLCA(node->left, id1, id2);
+        if (node->id < id1 && node->id < id2) return findLCA(node->right, id1, id2);
+        return node;
+    }
+
+    void deleteTree(Employee* node) {
+        if (node == nullptr) return;
+        deleteTree(node->left);
+        deleteTree(node->right);
+        delete node;
+    }
+
+public:
+    EmployeeTree() : root(nullptr) {}
+    ~EmployeeTree() { deleteTree(root); }
+
+    void insert(int id) { root = insertEmployee(root, id); }
+
+    Employee* findLCA(int id1, int id2) { return findLCA(root, id1, id2); }
+
+    void displayLCA(int id1, int id2) {
+        Employee* lcaNode = findLCA(id1, id2);
+        cout << "Employee Hierarchy LCA" << endl;
+        cout << "Employees: " << id1 << " and " << id2 << endl;
+        if (lcaNode) cout << "Closest Common Manager (LCA) ID: **" << lcaNode->id << "**" << endl;
+        else cout << "LCA not found." << endl;
+    }
+};
+
+int main() {
+    EmployeeTree tree;
+    tree.insert(100);
+    tree.insert(50);
+    tree.insert(150);
+    tree.insert(40);
+    tree.insert(60);
+    tree.insert(120);
+    tree.insert(180);
+    tree.displayLCA(40, 60);
+    return 0;
+}
