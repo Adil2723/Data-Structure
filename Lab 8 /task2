@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Node {
+public:
+    string data;
+    Node* left;
+    Node* right;
+    Node(string val) {
+        data = val;
+        left =  nullptr;
+		right = nullptr;
+    }
+};
+
+class BinaryTree {
+private:
+    Node* root;
+
+    Node* insert(Node* node, string val) {
+        if (!node) return new Node(val);
+        char choice;
+        cout << "Add " << val << " to the left (l) or right (r) of " << node->data << "? ";
+        cin >> choice;
+        if (choice == 'l' || choice == 'L') node->left = insert(node->left, val);
+        else node->right = insert(node->right, val);
+        return node;
+    }
+
+    int countNodes(Node* node) {
+        if (!node) return 0;
+        return 1 + countNodes(node->left) + countNodes(node->right);
+    }
+
+    int countLeaves(Node* node) {
+        if (!node) return 0;
+        if (!node->left && !node->right) return 1;
+        return countLeaves(node->left) + countLeaves(node->right);
+    }
+
+    int treeHeight(Node* node) {
+        if (!node) return 0;
+        int leftH = treeHeight(node->left);
+        int rightH = treeHeight(node->right);
+        return 1 + (leftH > rightH ? leftH : rightH);
+    }
+
+public:
+    BinaryTree() { root = nullptr; }
+
+    void addNode(string val) {
+        if (!root) root = new Node(val);
+        else root = insert(root, val);
+    }
+
+    void displayProperties() {
+        cout << "\nTotal Nodes: " << countNodes(root) << endl;
+        cout << "Leaf Nodes: " << countLeaves(root) << endl;
+        cout << "Height of Tree: " << treeHeight(root) << endl;
+    }
+};
+
+int main() {
+    BinaryTree tree;
+    int n;
+    string val;
+    cout << "Enter number of nodes: ";
+    cin >> n;
+    cin.ignore();
+    for (int i = 0; i < n; i++) {
+        cout << "Enter node value: ";
+        getline(cin, val);
+        tree.addNode(val);
+    }
+    tree.displayProperties();
+    return 0;
+}
