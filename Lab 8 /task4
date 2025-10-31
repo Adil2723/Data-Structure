@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+    
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+
+class CompleteBinaryTree {
+private:
+    Node* root;
+    int* arr;
+    int size;
+
+    Node* buildTree(int index) {
+        if (index >= size) return nullptr;
+        Node* node = new Node(arr[index]);
+        node->left = buildTree(2 * index + 1);
+        node->right = buildTree(2 * index + 2);
+        return node;
+    }
+
+    int findSubtree(Node* node, int target, Node*& found) {
+        if (!node) return 0;
+        int leftSum = findSubtree(node->left, target, found);
+        int rightSum = findSubtree(node->right, target, found);
+        int total = node->data + leftSum + rightSum;
+        if (total == target && !found) {
+            found = node;
+        }
+        return total;
+    }
+
+    void printSubtree(Node* node) {
+        if (!node) return;
+        cout << node->data << " ";
+        printSubtree(node->left);
+        printSubtree(node->right);
+    }
+
+public:
+    CompleteBinaryTree(int arr[], int n) {
+        this->arr = arr;
+        this->size = n;
+        root = buildTree(0);
+    }
+
+    void findAndPrintSubtree(int target) {
+        Node* found = nullptr;
+        findSubtree(root, target, found);
+        if (found) {
+            cout << "Subtree found with sum = " << target << ":\n";
+            printSubtree(found);
+            cout << endl;
+        } else {
+            cout << "No subtree found with sum = " << target << endl;
+        }
+    }
+};
+
+int main() {
+    int warehouse[] = {5, 3, 8, 2, 4, 6, 10};
+    int n = sizeof(warehouse) / sizeof(warehouse[0]);
+    int target = 15;
+
+    CompleteBinaryTree tree(warehouse, n);
+
+    cout << "Searching for subtree with sum = " << target << "...\n";
+    tree.findAndPrintSubtree(target);
+
+    return 0;
+}
