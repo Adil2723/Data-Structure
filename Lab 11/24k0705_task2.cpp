@@ -1,0 +1,98 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Dictionary {
+    string table[100];
+
+public:
+    Dictionary() {
+        for(int i = 0; i < 100; i++)
+            table[i] = "";
+    }
+
+    int hashFunction(string s) {
+        int sum = 0;
+        for(char c : s)
+            sum += int(c);
+        return sum % 100;
+    }
+
+    void Add_Record(string s) {
+        int h = hashFunction(s);
+        int idx = h;
+        int i = 0;
+
+        while(table[idx] != "") {
+            i++;
+            if(i == 100) {
+                cout << "Dictionary is full!\n";
+                return;
+            }
+            idx = (h + i) % 100;
+        }
+
+        table[idx] = s;
+        cout << "Word added successfully.\n";
+    }
+
+    void Word_Search(string s) {
+        int h = hashFunction(s);
+        int idx = h;
+        int i = 0;
+
+        while(table[idx] != "") {
+            if(table[idx] == s) {
+                cout << "Word FOUND in dictionary.\n";
+                return;
+            }
+            i++;
+            if(i == 100) break;
+            idx = (h + i) % 100;
+        }
+
+        cout << "ERROR: Word NOT found.\n";
+    }
+
+    void Print_Dictionary() {
+        for(int i = 0; i < 100; i++) {
+            cout << i << ": ";
+            if(table[i] == "") cout << "EMPTY";
+            else cout << table[i];
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Dictionary dict;
+    int choice;
+    string word;
+
+    while(true) {
+        cout << "\n1. Add Record\n2. Search Word\n3. Print Dictionary\n4. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        if(choice == 1) {
+            cout << "Enter word: ";
+            cin.ignore();
+            getline(cin, word);
+            dict.Add_Record(word);
+        }
+        else if(choice == 2) {
+            cout << "Enter word: ";
+            cin.ignore();
+            getline(cin, word);
+            dict.Word_Search(word);
+        }
+        else if(choice == 3) {
+            dict.Print_Dictionary();
+        }
+        else if(choice == 4) break;
+    }
+
+    return 0;
+}
+
+
