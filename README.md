@@ -1,56 +1,125 @@
 # 🧠 Data Structures in C++
 
-Welcome to the **Data Structures in C++** repository!  
-This repository contains well-organized implementations of core Data Structures along with **Lab Tasks, Revision Tasks, and Practice Problems (including LeetCode questions)**.
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-C++-blue?logo=c%2B%2B" />
+  <img src="https://img.shields.io/badge/Focus-Data Structures-orange" />
+  <img src="https://img.shields.io/badge/Practice-LeetCode-green" />
+</p>
+
+<h3 align="center">📚 Lab Tasks • Revision • Practice • Interview Preparation</h3>
 
 ---
 
-## 🚀 About This Repository
+## 📖 Overview  
 
-This repository is designed to strengthen your understanding of **Data Structures using C++** through:
+This repository contains **well-structured implementations of core Data Structures in C++**, along with:
 
-- 🧪 Lab Tasks (Class/University assignments)
-- 🔁 Revision Tasks (Concept reinforcement)
-- 💡 Practice Questions (Problem-solving)
-- 🧩 LeetCode Problems (Interview preparation)
+- 🧪 Lab Tasks  
+- 🔁 Revision Tasks  
+- 💡 Practice Problems  
+- 🧩 LeetCode Questions  
 
-Each topic is implemented with **clean C++ code**, proper comments, and easy-to-understand logic.
-
----
-
-## 📦 Topics Covered
-
-### 📊 Linear Data Structures
-- Arrays
-- Linked List (Singly, Doubly, Circular)
-- Stack
-- Queue (Simple, Circular, Priority Queue)
-
-### 🌳 Non-Linear Data Structures
-- Trees (Binary Tree, BST, AVL Tree)
-- Graphs (BFS, DFS, Adjacency List/Matrix)
-- Heaps (Min Heap, Max Heap)
-
-### 🗂️ Hashing
-- Hash Tables
-- Collision Handling
+It is designed to build a **strong foundation in Data Structures**, improve **problem-solving skills**, and prepare for **technical interviews**.
 
 ---
 
-## 🧪 Task Categories
+## 🚀 Repository Highlights  
 
-### 🧪 Lab Tasks
-University/lab-based coding assignments with step-by-step implementation.
-
-### 🔁 Revision Tasks
-Short programs to revise key concepts quickly before exams.
-
-### 💡 Practice Problems
-Extra problems to strengthen logic building and coding skills.
-
-### 🧩 LeetCode Problems
-Selected LeetCode questions for interview preparation and competitive programming.
+- Clean and well-commented C++ implementations  
+- Organized by topic and difficulty  
+- Covers both **academic coursework** and **interview preparation**  
+- Focus on **logic building and efficiency**  
 
 ---
 
+## 📂 Topics Covered  
 
+---
+
+### 📊 Linear Data Structures  
+
+- Arrays  
+- Linked Lists  
+  - Singly  
+  - Doubly  
+  - Circular  
+- Stack  
+- Queue  
+  - Simple Queue  
+  - Circular Queue  
+  - Priority Queue  
+
+---
+
+### 🌳 Non-Linear Data Structures  
+
+- Trees  
+  - Binary Tree  
+  - Binary Search Tree (BST)  
+  - AVL Tree  
+- Graphs  
+  - BFS (Breadth-First Search)  
+  - DFS (Depth-First Search)  
+  - Adjacency List & Matrix  
+- Heaps  
+  - Min Heap  
+  - Max Heap  
+
+---
+
+### 🗂️ Hashing  
+
+- Hash Tables  
+- Collision Handling Techniques  
+
+---
+
+## 🧪 Task Categories  
+
+---
+
+### 🧪 Lab Tasks  
+- University-based implementations  
+- Step-by-step structured coding  
+
+---
+
+### 🔁 Revision Tasks  
+- Quick concept-based programs  
+- Useful for exam preparation  
+
+---
+
+### 💡 Practice Problems  
+- Additional problems to improve logic building  
+- Focus on coding efficiency and accuracy  
+
+---
+
+### 🧩 LeetCode Problems  
+- Selected problems for interview preparation  
+- Covers common patterns and techniques  
+
+---
+
+## 📌 Learning Outcomes  
+
+- Strong understanding of **Data Structures in C++**  
+- Improved **problem-solving and analytical thinking**  
+- Hands-on experience with **real-world coding patterns**  
+- Preparation for **technical interviews and coding assessments**  
+
+---
+
+## 👨‍💻 Author  
+
+<p align="center">
+  <b>Muhammad Adil Saeed</b><br>
+  BSCS – FAST University  
+</p>
+
+---
+
+## ⭐ Support  
+
+If you find this repository helpful, consider giving it a ⭐ on GitHub!
