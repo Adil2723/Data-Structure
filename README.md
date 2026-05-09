@@ -1,125 +1,165 @@
-# 🧠 Data Structures in C++
+# ⚡ Data Structures & Algorithms in C++
+
+<h1 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=2500&pause=1000&color=00C2FF&center=true&vCenter=true&width=900&lines=Data+Structures+%26+Algorithms+in+C%2B%2B;Problem+Solving+%7C+Labs+%7C+Interview+Prep;FAST+University+BSCS" alt="Typing SVG" />
+</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Language-C++-blue?logo=c%2B%2B" />
-  <img src="https://img.shields.io/badge/Focus-Data Structures-orange" />
-  <img src="https://img.shields.io/badge/Practice-LeetCode-green" />
-</p>
-
-<h3 align="center">📚 Labs • Revision • Practice • Interview Preparation</h3>
-
----
-
-## 📖 Overview  
-
-This repository contains **well-structured implementations of core Data Structures in C++**, along with:
-
-- 🧪 Lab Tasks  
-- 🔁 Revision Tasks  
-- 💡 Practice Problems  
-- 🧩 LeetCode Questions  
-
-It is designed to build a **strong foundation in Data Structures**, enhance **problem-solving skills**, and support **technical interview preparation**.
-
----
-
-## 🚀 Repository Highlights  
-
-- ✅ Clean and well-commented C++ implementations  
-- 📂 Organized by topic and difficulty  
-- 🎯 Covers both academic coursework and interview preparation  
-- ⚡ Focus on logic building and efficient solutions  
-
----
-
-## 📂 Topics Covered  
-
----
-
-### 📊 Linear Data Structures  
-
-- Arrays  
-- Linked Lists  
-  - Singly  
-  - Doubly  
-  - Circular  
-- Stack  
-- Queue  
-  - Simple Queue  
-  - Circular Queue  
-  - Priority Queue  
-
----
-
-### 🌳 Non-Linear Data Structures  
-
-- Trees  
-  - Binary Tree  
-  - Binary Search Tree (BST)  
-  - AVL Tree  
-- Graphs  
-  - Breadth-First Search (BFS)  
-  - Depth-First Search (DFS)  
-  - Adjacency List & Matrix  
-- Heaps  
-  - Min Heap  
-  - Max Heap  
-
----
-
-### 🗂️ Hashing  
-
-- Hash Tables  
-- Collision Handling Techniques  
-
----
-
-## 🧪 Task Categories  
-
----
-
-### 🧪 Lab Tasks  
-- University-based implementations  
-- Step-by-step structured coding  
-
----
-
-### 🔁 Revision Tasks  
-- Quick concept-based programs  
-- Ideal for exam preparation  
-
----
-
-### 💡 Practice Problems  
-- Additional problems for logic building  
-- Focus on efficiency and optimization  
-
----
-
-### 🧩 LeetCode Problems  
-- Selected interview-focused problems  
-- Covers common coding patterns and techniques  
-
----
-
-## 📌 Learning Outcomes  
-
-- Strong understanding of **Data Structures in C++**  
-- Improved **problem-solving and analytical thinking**  
-- Hands-on experience with **real-world coding patterns**  
-- Better preparation for **technical interviews and assessments**  
-
----
-
-## 👨‍💻 Author  
-
-<p align="center">
-  <b>Muhammad Adil Saeed</b><br>
-  BSCS – FAST University  
+  <img src="https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Data%20Structures-Core%20Concepts-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Algorithms-Problem%20Solving-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Platform-LeetCode-yellow?style=for-the-badge"/>
 </p>
 
 ---
 
-## ⭐ Support  
+## 🌟 About This Repository
 
-If you find this repository helpful, consider giving it a ⭐ on GitHub!
+Welcome to my **Data Structures & Algorithms in C++** repository 🚀  
+
+This repository is a complete collection of:
+
+- 📚 University Lab Work  
+- 🧠 Concept Revision  
+- 💻 Coding Practice  
+- 🧩 LeetCode Solutions  
+- ⚡ DSA Interview Preparation  
+
+The main goal of this repository is to strengthen **logic building**, improve **problem-solving skills**, and master **efficient coding techniques** using **C++**.
+
+---
+
+# 📌 What You'll Find
+
+<table>
+<tr>
+<td width="50%">
+
+### 📘 Core Concepts
+- Arrays
+- Linked Lists
+- Stack
+- Queue
+- Trees
+- Graphs
+- Hashing
+- Heaps
+
+</td>
+
+<td width="50%">
+
+### 🎯 Practice & Preparation
+- Lab Tasks
+- Revision Programs
+- LeetCode Questions
+- Interview Problems
+- Algorithm Practice
+- Logic Building
+
+</td>
+</tr>
+</table>
+
+---
+
+# 🧩 Data Structures Covered
+
+## 📦 Linear Data Structures
+
+```txt
+▸ Arrays
+▸ Linked Lists
+   ├── Singly Linked List
+   ├── Doubly Linked List
+   └── Circular Linked List
+
+▸ Stack
+▸ Queue
+   ├── Simple Queue
+   ├── Circular Queue
+   └── Priority Queue
+```
+
+---
+
+## 🌳 Non-Linear Data Structures
+
+```txt
+▸ Trees
+   ├── Binary Tree
+   ├── Binary Search Tree (BST)
+   └── AVL Tree
+
+▸ Graphs
+   ├── BFS Traversal
+   ├── DFS Traversal
+   ├── Adjacency Matrix
+   └── Adjacency List
+
+▸ Heaps
+   ├── Min Heap
+   └── Max Heap
+```
+
+---
+
+## 🗂️ Hashing Techniques
+
+```txt
+▸ Hash Tables
+▸ Collision Resolution
+▸ Chaining
+▸ Linear Probing
+```
+
+---
+
+# 🧪 Repository Sections
+
+| Section | Description |
+|---|---|
+| 🧪 Labs | University practical implementations |
+| 🔁 Revision | Quick concept revision programs |
+| 💡 Practice | Additional logic-building problems |
+| 🧩 LeetCode | Interview-focused coding questions |
+| ⚡ Algorithms | Efficient problem-solving techniques |
+
+---
+
+# 🎯 Learning Goals
+
+✅ Master Data Structures in C++  
+✅ Improve coding efficiency  
+✅ Develop analytical thinking  
+✅ Practice interview-style questions  
+✅ Build strong problem-solving skills  
+
+---
+
+
+# 🛠️ Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=cpp,vscode,github,git" />
+</p>
+
+---
+
+
+# 👨‍💻 Author
+
+<p align="center">
+  <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" width="100" height="100" />
+</p>
+
+<h3 align="center">Muhammad Adil Saeed</h3>
+
+<p align="center">
+  BSCS Student — FAST University <br>
+  Passionate about C++, DSA & Problem Solving 🚀
+</p>
+
+---
+
+
